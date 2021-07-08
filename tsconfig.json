@@ -1,8 +1,8 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
-  "include": ["src", "types"],
   "compilerOptions": {
     "module": "esnext",
+    "target": "esnext",
     "moduleResolution": "node",
     "jsx": "preserve",
     "baseUrl": "./",
@@ -18,11 +18,18 @@
     /* Additional Options */
     "strict": true,
     "skipLibCheck": true,
-    "types": ["mocha", "snowpack-env"],
+    "types": [
+      "mocha",
+      "snowpack-env"
+    ],
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "useDefineForClassFields": true,
     "allowSyntheticDefaultImports": true,
     "importsNotUsedAsValues": "error"
-  }
+  },
+  "include": [
+    "src",
+    "types"
+  ]
 }
