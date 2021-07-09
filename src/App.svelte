@@ -1,68 +1,44 @@
 <script lang='typescript'>
-	import {onMount} from 'svelte';
-	let count: number = 0;
-	onMount(() => {
-		const interval = setInterval(() => count++, 1000);
-		return () => {
-			clearInterval(interval);
-		};
-	});
+	import { Router, Link, Route } from "svelte-routing";
+	import Home from "./routes/Home.svelte";
+	import About from "./routes/About.svelte";
+
+	export let url = "";
 </script>
 
-<style lang="scss">
-	:global(body) {
-		margin: 0;
-		font-family: Arial, Helvetica, sans-serif;
+<style lang='scss'>
+	:root {
+		--nav-height: 10vh;
+		--rest-height: calc(100vh - var(--nav-height));
 	}
-	.App {
-		text-align: center;
-		p {
-			margin: 0.4rem;
-		}
-		code {
-			background: #0002;
-			padding: 4px 8px;
-			border-radius: 4px;
-		}
-	}
-	.App-header {
-		background-color: #f9f6f6;
-		color: #333;
-		min-height: 100vh;
+	.nav-bar {
+		height: var(--nav-height);
+		width: 100vw;
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		font-size: calc(10px + 2vmin);
-	}
-	.App-link {
-		color: #ff3e00;
-	}
-	.App-logo {
-		height: 36vmin;
-		pointer-events: none;
-		margin-bottom: 3rem;
-		animation: App-logo-spin infinite 1.6s ease-in-out alternate;
-	}
-	@keyframes App-logo-spin {
-		from {
-			transform: scale(1) rotate(0);
+		background-color: #444;
+		color: #fff;
+		a {
+			color: #00f;
+			&:visited {
+				color: rgb(20, 129, 255);
+			}
 		}
-		to {
-			transform: scale(1.06) rotate(360);
-		}
+	}
+	.app-base {
+		height: var(--rest-height);
+		width: 100vw;
+		background-color: #333;
+		color: #fff;
 	}
 </style>
 
-<div class="App">
-	<header class="App-header">
-		<img src="/assets/logo.svg" class="App-logo" alt="logo" />
-		<p>Edit <code>src/App.svelte</code> and save to reload.</p>
-		<p>Page has been open for <code>{count}</code> seconds.</p>
-		<p>
-			<a class="App-link" href="https://svelte.dev" target="_blank" rel="noopener noreferrer">
-			Learn Svelte
-			</a>
-		</p>
-	</header>
-</div>
+<Router url="{url}">
+	<nav class='nav-bar'>
+		<Link to="/">Home</Link>
+		<Link to="about">About</Link>
+	</nav>
+	<div class='app-base'>
+		<Route path="about" component="{About}" />
+		<Route path="/"><Home /></Route>
+	</div>
+</Router>
