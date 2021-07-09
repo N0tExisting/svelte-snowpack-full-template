@@ -47,11 +47,11 @@ jobs:
           # Artifact name
           name: Tarball
           # Destination path
-          path: ./package.tgz
+          path: ./
 
       # TODO: #3 Validate Shape of Tarball
       - name: Unball
-        run: tar zvxf package.tgz
+        run: tar zvxf svelte-snowpack-full-*.tgz
 
       - name: Verify Shape
         run: 'echo "TODO: VERIFY THE SHAPE OF THE TARBALL"'
