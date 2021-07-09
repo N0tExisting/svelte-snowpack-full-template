@@ -9,13 +9,13 @@
 Using npx:
 
 ```bash
-npx create-snowpack-app <your-app-name> --template svelte-snowpack-full-template
+npx create-snowpack-app <your-app-name> --template svelte-snowpack-full
 ```
 
 or using yarn:
 
 ```bash
-yarn --emoji true create snowpack-app <your-app-name> --template svelte-snowpack-full-template --use-yarn
+yarn --emoji true create snowpack-app <your-app-name> --template svelte-snowpack-full --use-yarn
 ```
 
 then `cd` into your directory

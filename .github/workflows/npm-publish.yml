@@ -36,7 +36,7 @@ jobs:
           name: release-tarball
           # A file, directory or wildcard pattern that describes what to upload
           path: ./svelte-snowpack-full-*.tgz
-          
+
       - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@master
@@ -53,7 +53,7 @@ jobs:
           release_name: svelte-snowpack-full-v${{steps.package-version.outputs.current-version}}
           draft: true
           prerelease: true
-          
+
       - name: Upload Release Asset 1
         id: upload-release-asset-1
         uses: actions/upload-release-asset@v1
@@ -62,10 +62,11 @@ jobs:
         with:
           # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object,
           # which include a `upload_url`. See this blog post for more info:
-          # https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          # https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./svelte-snowpack-full-*.tgz
-  
+          asset_name: svelte-snowpack-full-v${{steps.package-version.outputs.current-version}}.tgz
+
   publish-npm:
     runs-on: ubuntu-latest
     steps:
