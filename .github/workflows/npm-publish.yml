@@ -8,27 +8,36 @@ on:
       - release
 
 jobs:
-  validate:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v1
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.2.0
         with:
+          # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
           node-version: 14.x
+          # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn
+          cache: yarn
 
       - name: Setup
         run: |
-          chmod +x ./Setup.sh
+          chmod +x Setup.sh
           ./Setup.sh
 
-      - name: build
-        run: yarn --emoji true build
+      - name: Build
+        run: yarn --emoji true pack
 
-      - name: test
-        run: yarn --emoji true test
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          # Artifact name
+          name: release-tarball
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./svelte-snowpack-full-*.tgz
 
   publish-npm:
-    needs: validate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -47,7 +56,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   publish-gpr:
-    needs: validate
     runs-on: ubuntu-latest
     permissions:
       contents: read

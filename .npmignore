@@ -3,4 +3,6 @@ svelte-snowpack-full-*.tgz
 **/build
 **/node_modules
 **/yarn-*.log
+package/
+.github/workflows/npm-*.yml
 yarn.lock

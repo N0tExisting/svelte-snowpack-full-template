@@ -3,3 +3,4 @@ svelte-snowpack-full-*.tgz
 **/build
 **/node_modules
 **/yarn-*.log
+package/
