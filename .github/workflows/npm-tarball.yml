@@ -51,7 +51,7 @@ jobs:
 
       # TODO: #3 Validate Shape of Tarball
       - name: Unball
-        run: tar zvxf svelte-snowpack-full-*.tgz
+        run: tar zvxf package.tgz
 
       - name: Verify Shape
         run: 'echo "TODO: VERIFY THE SHAPE OF THE TARBALL"'
