@@ -1,7 +1,8 @@
 {
   "name": "svelte-snowpack-full",
   "license": "MIT",
-  "description": "TODO: Description",
+  "version": "0.1.0",
+  "description": "A production ready template using Svelte and Snowpack",
   "bugs": {
     "url": "https://github.com/N0tExisting/svelte-snowpack-full-template/issues"
   },
@@ -16,6 +17,7 @@
     "svelte",
     "typescript",
     "sass",
+    "scss",
     "production-ready"
   ],
   "author": {
