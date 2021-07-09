@@ -1,4 +1,30 @@
 {
+  "name": "svelte-snowpack-full",
+  "license": "MIT",
+  "version": "0.1.0",
+  "description": "A production ready template using Svelte and Snowpack",
+  "bugs": {
+    "url": "https://github.com/N0tExisting/svelte-snowpack-full-template/issues"
+  },
+  "repository": {
+    "url": "https://github.com/N0tExisting/svelte-snowpack-full-template.git",
+    "type": "git"
+  },
+  "homepage": "https://svelte-snowpack-full-template.vercel.app/",
+  "keywords": [
+    "csa-template",
+    "template",
+    "snowpack",
+    "svelte",
+    "typescript",
+    "sass",
+    "scss",
+    "production-ready"
+  ],
+  "author": {
+    "name": "Not Existing",
+    "email": "n0t.ex1stng@gmail.com"
+  },
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",

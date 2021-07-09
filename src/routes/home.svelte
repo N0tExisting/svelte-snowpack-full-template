@@ -2,9 +2,11 @@
 	import {onMount} from 'svelte';
 	let count: number = 0;
 	onMount(() => {
+		console.log('Mouted Home')
 		const interval = setInterval(() => count++, 1000);
 		return () => {
 			clearInterval(interval);
+			console.log('Unmouted Home');
 		};
 	});
 </script>
@@ -40,14 +42,17 @@
 		height: 36vmin;
 		pointer-events: none;
 		margin-bottom: 3rem;
-		animation: App-logo-spin infinite 1.6s ease-in-out alternate;
+		animation: App-logo-scale infinite 3.2s ease-in-out normal;
 	}
-	@keyframes App-logo-spin {
-		from {
-			transform: scale(1) rotate(0);
+	@keyframes App-logo-scale {
+		0% {
+			transform: scale(.8)  rotate(0deg);
 		}
-		to {
-			transform: scale(1.06) rotate(360);
+		50% {
+			transform: scale(1.2)  rotate(360deg);
+		}
+		100% {
+			transform: scale(.8)  rotate(720deg);
 		}
 	}
 </style>
