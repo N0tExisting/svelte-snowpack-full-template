@@ -1,9 +1,6 @@
 name: Tarball
 
-on:
-  push:
-  pull_request:
-  workflow_dispatch:
+on: [ push, pull_request, workflow_dispatch, ]
 
 jobs:
   tarball:
@@ -40,7 +37,6 @@ jobs:
     needs: [tarball]
 
     steps:
-
       - name: Download a Build Artifact
         uses: actions/download-artifact@v2.0.10
         with:
@@ -49,9 +45,9 @@ jobs:
           # Destination path
           path: ./
 
-      # TODO: #3 Validate Shape of Tarball
       - name: Unball
         run: tar zvxf svelte-snowpack-full-*.tgz
 
+      # TODO: #3 Validate Shape of Tarball
       - name: Verify Shape
         run: 'echo "TODO: VERIFY THE SHAPE OF THE TARBALL"'

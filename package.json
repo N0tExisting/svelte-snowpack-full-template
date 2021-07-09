@@ -10,6 +10,7 @@
     "url": "https://github.com/N0tExisting/svelte-snowpack-full-template.git",
     "type": "git"
   },
+  "homepage": "https://svelte-snowpack-full-template.vercel.app/",
   "keywords": [
     "csa-template",
     "template",
