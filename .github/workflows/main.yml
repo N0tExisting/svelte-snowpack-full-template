@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.2.0
+        with:
+          # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
+          node-version: 14.x
+          # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn
+          cache: yarn
+
+      - name: Setup
+        run: |
+          chmod +x Setup.sh
+          ./Setup.sh
+
+      - name: Build
+        run: yarn --emoji true build
+
+  test:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.2.0
+        with:
+          # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
+          node-version: 14.x
+          # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn
+          cache: yarn
+
+      - name: Setup
+        run: |
+          chmod +x Setup.sh
+          ./Setup.sh
+
+      - name: Test
+        run: yarn --emoji true test
