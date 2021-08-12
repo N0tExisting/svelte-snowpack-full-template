@@ -52,7 +52,7 @@
     "@types/webpack": "^5.28.0",
     "@web/test-runner": "^0.13.15",
     "chai": "^4.3.4",
-    "cssnano": "^5.0.6",
+    "cssnano": "^5.0.7",
     "postcss": "^8.3.6",
     "postcss-import": "^14.0.2",
     "postcss-preset-env": "^6.7.0",
