@@ -55,7 +55,7 @@
     "cssnano": "^5.0.7",
     "postcss": "^8.3.6",
     "postcss-import": "^14.0.2",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-preset-env": "^7.0.0",
     "sass": "^1.38.0",
     "snowpack": "^3.8.0",
     "svelte-preprocess": "^4.7.4",
